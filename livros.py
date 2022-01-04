@@ -1,13 +1,6 @@
 from BancoO import BancoO
 from BancoD import BancoD
 
-# ao tipo de sistema que 
-# cria um elemento -> insert
-#remove um elemento -> delete
-#update de um elemento -> update
-# busca um elemento -> select
-# dá-se o nome de CRUD
-
 class LivroO:
 
     def __init__(self, idlivro=0, nome="", autor="", genero="", status="", opiniao="", data=""):
@@ -86,7 +79,7 @@ class LivroD:
         c.execute(comando)
         c.close()
     
-    def updateLivroO(self):
+    def updateLivroD(self):
         banco = BancoD()
         c = banco.conexao.cursor()
         comando = "update livrosD set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', site = '" +self.site+"', valor = '" +self.valor+"', data = '"+self.data+"'where idlivro = "+self.idlivro+""
