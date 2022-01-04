@@ -1,7 +1,6 @@
 import sqlite3
-
 #Lista de livros desejados
-class Banco:
+class BancoD:
     def __init__(self):
         self.conexao = sqlite3.connect("bancoD.db")
         self.createTable()
@@ -12,7 +11,7 @@ class Banco:
         #nesse caso cria uma tabela
         c.execute(
             """
-            create table if not exists usuarios(
+            create table if not exists livrosD(
                 idlivro integer primary key autoincrement,
                 nome text,
                 autor text,
