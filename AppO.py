@@ -117,7 +117,7 @@ class Obtidos:
         self.txtgenero["font"] = self.fonte
         self.txtgenero.pack(side=LEFT)
 
-        #Opnião
+        #Opinião
         self.lblopiniao = Label(self.container7, text="Opinião:",
         font=self.fonte, width=10)
         self.lblopiniao.pack(side=LEFT)
@@ -127,7 +127,7 @@ class Obtidos:
         self.txtopiniao["font"] = self.fonte
         self.txtopiniao.pack(side=LEFT)
 
-        #dataa
+        #DataA
         self.lbldataa = Label(self.container8, text="Data de Atualização:",
         font=self.fonte, width=10)
         self.lbldataa.pack(side=LEFT)
@@ -152,8 +152,6 @@ class Obtidos:
         tipo.set(self.status[2])
         self.dropdown = OptionMenu(self.container10,tipo,*self.status,command=self.display_selected)
         self.dropdown.pack()
-
-
 
         self.bntInsert = Button(self.container8, text="Inserir",font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserir
@@ -246,9 +244,6 @@ class Obtidos:
         titulo["font"] = ("Calibri", "9", "bold")
         titulo.pack ()
         root2.mainloop()
-
-        
-        
 
 root = Tk()
 Obtidos(root)
