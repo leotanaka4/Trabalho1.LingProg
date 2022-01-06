@@ -51,8 +51,6 @@ class Obtidos:
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
-
-
         #ID Livro
         self.lblidlivro = Label(self.container2,
         text="ID Livro:", font=self.fonte, width=10)
@@ -166,6 +164,7 @@ class Obtidos:
         self.lblmsg["text"] = user.insertLivroO()
         
     def display_selected(self):
+        #entender melhor
         if(self.dropdown == "Em curso"):
             self.txtstatus = "Em curso"
         elif(self.dropdown == "Finalizado"):
@@ -181,7 +180,7 @@ class Obtidos:
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
-        user.status = self.txtstatus.get()
+        user.status = self.txtstatus
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
 
