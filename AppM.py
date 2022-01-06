@@ -25,10 +25,20 @@ class Principal(Obtidos, Desejados):
         self.btnBuscar = Button(self.container2, text="Lista de Livros Obtidos",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarObtidos
-        self.btnBuscar.pack(side=RIGHT)
+        self.btnBuscar.pack(side=LEFT)
 
         self.btnBuscar = Button(self.container3, text="Lista de Livros Desejados",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarDesejados
-        self.btnBuscar.pack(side=RIGHT)
+        self.btnBuscar.pack(side=LEFT)
+
+    def iniciarObtidos(self,):
+        root1 = Tk()
+        Obtidos(root1)
+        root1.mainloop()
+        
+    def iniciarDesejados(self,):
+        root2 = Tk()
+        Desejados(root2)
+        root2.mainloop()
 
