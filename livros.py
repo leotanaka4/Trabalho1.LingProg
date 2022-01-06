@@ -3,7 +3,7 @@ from BancoD import BancoD
 
 class LivroO:
 
-    def __init__(self, idlivro=0, nome="", autor="", genero="", status="", opiniao="", data=""):
+    def __init__(self, idlivro=0, nome="", autor="", genero="", status="", opiniao="", dataa=""):
         self.info = {}
         self.idlivro = idlivro
         self.nome = nome
@@ -11,7 +11,7 @@ class LivroO:
         self.genero = genero
         self.status = status
         self.opiniao = opiniao
-        self.data = data
+        self.dataa = dataa
     
     def insertLivroO(self):
         banco = BancoO()
