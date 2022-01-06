@@ -99,15 +99,15 @@ class Obtidos:
 
         #Status
         self.status = ["Em Espera","Em curso","Finalizado"]
-        self.txtstatus = 'Em espera'
+        self.txtstatus = "Em espera"
 
         self.lblstatus= Label(self.container6, text="Status:",
         font=self.fonte, width=10)
         self.lblstatus.pack(side=LEFT)
 
-        tipo = StringVar()
-        tipo.set("Escolha")
-        self.dropdown = OptionMenu(self.container6,tipo,*self.status,command=self.display_selected)
+        self.variable = StringVar()
+        self.variable.set("Escolha")
+        self.dropdown = OptionMenu(self.container6,self.variable,*self.status,command = self.display_selected())
         self.dropdown.pack()
 
         #Opinião
@@ -164,13 +164,7 @@ class Obtidos:
         self.lblmsg["text"] = user.insertLivroO()
         
     def display_selected(self):
-        #entender melhor
-        if(self.dropdown == "Em curso"):
-            self.txtstatus = "Em curso"
-        elif(self.dropdown == "Finalizado"):
-            self.txtstatus = "Finalizado"
-        else:
-            self.txtstatus = "Em espera"
+        self.txtstatus = self.variable.get()
 
     def alterar(self):
         
