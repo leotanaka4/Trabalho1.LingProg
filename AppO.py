@@ -1,5 +1,5 @@
-from livros import LivrosO
-from livros import LivrosD
+from livros import LivroO
+from livros import LivroD
 from tkinter import *
 
 #from <arquivo> import <classe ou método>
@@ -175,7 +175,7 @@ class Obtidos:
 
     def inserir(self):
         
-        user = LivrosO()
+        user = LivroO()
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
@@ -190,7 +190,7 @@ class Obtidos:
 
     def alterar(self):
         
-        user = LivrosO()
+        user = LivroO()
         #id está vazio
         user.idusuario = self.txtidusuario.get()
         user.nome = self.txtnome.get()
@@ -204,14 +204,14 @@ class Obtidos:
 
 
     def excluir(self):
-        user = LivrosO()
+        user = LivroO()
         user.idusuario = self.txtidusuario.get()
 
         # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
         self.lblmsg["Text"] = user.deleteUser()
 
     def buscar(self):
-        user = LivrosO()
+        user = LivroO()
         id = self.txtidlivro.get()
         
         # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
