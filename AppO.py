@@ -100,6 +100,12 @@ class Obtidos:
         self.txtgenero["font"] = self.fonte
         self.txtgenero.pack(side=LEFT)
 
+        #Status
+        tipo = StringVar()
+        tipo.set(self.status[2])
+        self.dropdown = OptionMenu(self.container6,tipo,*self.status,command=self.display_selected)
+        self.dropdown.pack()
+
         #Opinião
         self.lblopiniao = Label(self.container7, text="Opinião:",
         font=self.fonte, width=10)
@@ -120,10 +126,7 @@ class Obtidos:
         self.txtdataa["font"] = self.fonte
         self.txtdataa.pack(side=LEFT)
 
-        tipo = StringVar()
-        tipo.set(self.status[2])
-        self.dropdown = OptionMenu(self.container6,tipo,*self.status,command=self.display_selected)
-        self.dropdown.pack()
+
 
         self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserir
