@@ -1,5 +1,4 @@
 from livros import LivroO
-from livros import LivroD
 from tkinter import *
 
 #from <arquivo> import <classe ou método>
@@ -48,11 +47,11 @@ class Obtidos:
         self.container10.pack()
 
 
-        self.titulo = Label(self.container1, text="Informe os dados do livro obtido:")
+        self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
-        self.status = ["Em Espera","Em curso","Finalizado"]
+
 
         #ID Livro
         self.lblidlivro = Label(self.container2,
@@ -101,8 +100,15 @@ class Obtidos:
         self.txtgenero.pack(side=LEFT)
 
         #Status
+        self.status = ["Em Espera","Em curso","Finalizado"]
+        self.txtstatus = 'Em espera'
+
+        self.lblstatus= Label(self.container6, text="Status:",
+        font=self.fonte, width=10)
+        self.lblstatus.pack(side=LEFT)
+
         tipo = StringVar()
-        tipo.set(self.status[2])
+        tipo.set("Escolha")
         self.dropdown = OptionMenu(self.container6,tipo,*self.status,command=self.display_selected)
         self.dropdown.pack()
 
@@ -126,21 +132,23 @@ class Obtidos:
         self.txtdataa["font"] = self.fonte
         self.txtdataa.pack(side=LEFT)
 
-
-
+        #Inserir
         self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserir
         self.bntInsert.pack (side=LEFT)
 
+        #Alterar
         self.bntAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12)
         self.bntAlterar["command"] = self.alterar
         self.bntAlterar.pack (side=LEFT)
 
+        #Excluir
         self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12)
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
         
-        self.lblmsg = Label(self.container9, text="")
+        #Feedback
+        self.lblmsg = Label(self.container10, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
@@ -150,14 +158,20 @@ class Obtidos:
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
+        user.status = self.txtstatus
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
 
         # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
         self.lblmsg["text"] = user.insertLivroO()
         
-    def display_selected(self, escolha):
-        pass 
+    def display_selected(self):
+        if(self.dropdown == "Em curso"):
+            self.txtstatus = "Em curso"
+        elif(self.dropdown == "Finalizado"):
+            self.txtstatus = "Finalizado"
+        else:
+            self.txtstatus = "Em espera"
 
     def alterar(self):
         
@@ -167,6 +181,7 @@ class Obtidos:
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
+        user.status = self.txtstatus.get()
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
 

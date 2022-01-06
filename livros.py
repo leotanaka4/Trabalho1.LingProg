@@ -16,7 +16,7 @@ class LivroO:
     def insertLivroO(self):
         banco = BancoO()
         c = banco.conexao.cursor()
-        comando = "insert into livrosO(nome, autor, genero, status, opiniao, data) values('"+ self.nome +"', '"+ self.autor + "','"+ self.genero +"','"+ self.status +"','"+ self.opiniao +"','"+ self.data +"')"
+        comando = "insert into livrosO(nome, autor, genero, status, opiniao, dataa) values('"+ self.nome +"', '"+ self.autor + "','"+ self.genero +"','"+ self.status +"','"+ self.opiniao +"','"+ self.dataa +"')"
         c.execute(comando)
         banco.conexao.commit()
         c.close()
@@ -39,14 +39,14 @@ class LivroO:
     def updateLivroO(self):
         banco = BancoO()
         c = banco.conexao.cursor()
-        comando = "update livrosO set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', status = '" +self.status+"', opiniao = '" +self.opiniao+"', data = '"+self.data+"'where idlivro = "+self.idlivro+""
+        comando = "update livrosO set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', status = '" +self.status+"', opiniao = '" +self.opiniao+"', data = '"+self.dataa+"'where idlivro = "+self.idlivro+""
         c.execute(comando)
         banco.conexao.commit()
         c.close()
 
 class LivroD:
 
-    def __init__(self, idlivro=0, nome="", autor="", genero="", site="", valor="", data=""):
+    def __init__(self, idlivro=0, nome="", autor="", genero="", site="", valor="", dataa=""):
         self.info = {}
         self.idlivro = idlivro
         self.nome = nome
@@ -54,12 +54,12 @@ class LivroD:
         self.genero = genero
         self.site = site
         self.valor = valor
-        self.data = data
+        self.dataa = dataa
     
     def insertLivroD(self):
         banco = BancoD()
         c = banco.conexao.cursor()
-        comando = "insert into livrosD(nome, autor, genero, site, valor, data) values('"+ self.nome +"', '"+ self.autor + "','"+ self.genero +"','"+ self.site +"','"+ self.valor +"','"+ self.data +"')"
+        comando = "insert into livrosD(nome, autor, genero, site, valor, dataa) values('"+ self.nome +"', '"+ self.autor + "','"+ self.genero +"','"+ self.site +"','"+ self.valor +"','"+ self.dataa +"')"
         c.execute(comando)
         banco.conexao.commit()
         c.close()
@@ -82,7 +82,7 @@ class LivroD:
     def updateLivroD(self):
         banco = BancoD()
         c = banco.conexao.cursor()
-        comando = "update livrosD set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', site = '" +self.site+"', valor = '" +self.valor+"', data = '"+self.data+"'where idlivro = "+self.idlivro+""
+        comando = "update livrosD set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', site = '" +self.site+"', valor = '" +self.valor+"', data = '"+self.dataa+"'where idlivro = "+self.idlivro+""
         c.execute(comando)
         banco.conexao.commit()
         c.close()
