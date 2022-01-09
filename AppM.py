@@ -11,23 +11,23 @@ class Principal(Obtidos, Desejados):
         self.container1.pack()
         self.container2 = Frame(master)
         self.container2["padx"] = 50
-        self.container2["pady"] = 5
+        self.container2["pady"] = 25
         self.container2.pack()
         self.container3 = Frame(master)
         self.container3["padx"] = 50
-        self.container3["pady"] = 5
+        self.container3["pady"] = 25
         self.container3.pack()
         
         self.titulo = Label(self.container1, text="Bookaholic")
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
-        self.btnBuscar = Button(self.container2, text="Livros Obtidos",
+        self.btnBuscar = Button(self.container2, text="Obtidos",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarObtidos
         self.btnBuscar.pack(side=LEFT)
 
-        self.btnBuscar = Button(self.container3, text="Livros Desejados",
+        self.btnBuscar = Button(self.container3, text="Desejados",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarDesejados
         self.btnBuscar.pack(side=LEFT)
