@@ -10,11 +10,11 @@ class Principal(Obtidos, Desejados):
         self.container1["pady"] = 10
         self.container1.pack()
         self.container2 = Frame(master)
-        self.container2["padx"] = 20
+        self.container2["padx"] = 50
         self.container2["pady"] = 5
         self.container2.pack()
         self.container3 = Frame(master)
-        self.container3["padx"] = 20
+        self.container3["padx"] = 50
         self.container3["pady"] = 5
         self.container3.pack()
         
@@ -22,12 +22,12 @@ class Principal(Obtidos, Desejados):
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
 
-        self.btnBuscar = Button(self.container2, text="Lista de Livros Obtidos",
+        self.btnBuscar = Button(self.container2, text="Livros Obtidos",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarObtidos
         self.btnBuscar.pack(side=LEFT)
 
-        self.btnBuscar = Button(self.container3, text="Lista de Livros Desejados",
+        self.btnBuscar = Button(self.container3, text="Livros Desejados",
         font=self.fonte, width=10)
         self.btnBuscar["command"] = self.iniciarDesejados
         self.btnBuscar.pack(side=LEFT)
@@ -42,3 +42,6 @@ class Principal(Obtidos, Desejados):
         Desejados(root2)
         root2.mainloop()
 
+root = Tk()
+Principal(root)
+root.mainloop()

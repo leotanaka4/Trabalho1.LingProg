@@ -213,7 +213,3 @@ class Obtidos:
 
         self.txtdataa.delete(0, END)
         self.txtdataa.insert(INSERT,user.dataa)
-    
-root = Tk()
-Obtidos(root)
-root.mainloop()

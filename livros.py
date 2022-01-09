@@ -46,7 +46,7 @@ class LivroO:
     def updateLivroO(self):
         banco = BancoO()
         c = banco.conexao.cursor()
-        comando = "update livrosO set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', status = '" +self.status+"', opiniao = '" +self.opiniao+"', data = '"+self.dataa+"'where idlivro = "+self.idlivro+""
+        comando = "update livrosO set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', status = '" +self.status+"', opiniao = '" +self.opiniao+"', dataa = '"+self.dataa+"'where idlivro = "+self.idlivro+""
         c.execute(comando)
         banco.conexao.commit()
         c.close()
@@ -97,7 +97,7 @@ class LivroD:
     def updateLivroD(self):
         banco = BancoD()
         c = banco.conexao.cursor()
-        comando = "update livrosD set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', site = '" +self.site+"', valor = '" +self.valor+"', data = '"+self.dataa+"'where idlivro = "+self.idlivro+""
+        comando = "update livrosD set nome = '" + self.nome +"', autor = '" + self.autor +"', genero = '"+self.genero+"', site = '" +self.site+"', valor = '" +self.valor+"', dataa = '"+self.dataa+"'where idlivro = "+self.idlivro+""
         c.execute(comando)
         banco.conexao.commit()
         c.close()
