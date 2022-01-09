@@ -1,5 +1,4 @@
-from BancoO import BancoO
-from BancoD import BancoD
+from Banco import BancoO, BancoD
 
 class LivroO:
 
@@ -34,6 +33,14 @@ class LivroO:
         c = banco.conexao.cursor()
         comando = "select * from livrosO where idlivro = " + str(id) + " "
         c.execute(comando)
+        for elemento in c:
+            self.idlivro = elemento[0]
+            self.nome = elemento[1]
+            self.autor = elemento[2]
+            self.genero = elemento[3]
+            self.status = elemento[4]
+            self.opiniao = elemento[5]
+            self.dataa = elemento[6]
         c.close()
     
     def updateLivroO(self):
@@ -77,6 +84,14 @@ class LivroD:
         c = banco.conexao.cursor()
         comando = "select * from livrosD where idlivro = " + str(id) + " "
         c.execute(comando)
+        for elemento in c:
+            self.idlivro = elemento[0]
+            self.nome = elemento[1]
+            self.autor = elemento[2]
+            self.genero = elemento[3]
+            self.site = elemento[4]
+            self.valor = elemento[5]
+            self.dataa = elemento[6]
         c.close()
     
     def updateLivroD(self):
