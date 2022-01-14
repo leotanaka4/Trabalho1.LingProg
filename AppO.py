@@ -232,9 +232,7 @@ class Obtidos():
         self.txtdataa.insert(INSERT,user.dataa)
     
     def gerarTabela(self):
-        engine = sqlalchemy.create_engine('bancoO.db')
-        df = pd.read_sql_table('livrosO', engine)
-        df.head()
+        pass
 
     def informacoes(self):
         pass
