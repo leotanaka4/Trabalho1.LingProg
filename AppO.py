@@ -1,9 +1,11 @@
+from re import I
 from livros import LivroO
 from tkinter import *
-
+import sqlalchemy
+import pandas as pd
 #from <arquivo> import <classe ou método>
 
-class Obtidos:
+class Obtidos():
 
     def __init__(self, master=None):
 
@@ -37,14 +39,19 @@ class Obtidos:
         self.container7.pack()
         self.container8 = Frame(master)
         self.container8["padx"] = 20
-        self.container8["pady"] = 10
+        self.container8["pady"] = 5
         self.container8.pack()
         self.container9 = Frame(master)
-        self.container9["pady"] = 15
+        self.container9["padx"] = 20
+        self.container9["pady"] = 10
         self.container9.pack()
         self.container10 = Frame(master)
-        self.container10["pady"] = 15
+        self.container10["padx"] = 20
+        self.container10["pady"] = 10
         self.container10.pack()
+        self.container11 = Frame(master)
+        self.container11["padx"] = 20
+        self.container11["pady"] = 10
 
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
@@ -145,8 +152,18 @@ class Obtidos:
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
         
+        #Tabela
+        self.bntTabela = Button(self.container10, text="Tabela", font=self.fonte, width=12)
+        self.bntTabela["command"] = self.gerarTabela
+        self.bntTabela.pack(side=LEFT)
+
+        #Informações
+        self.bntInformacoes = Button(self.container10, text="Informações", font=self.fonte, width=12)
+        self.bntInformacoes["command"] = self.informacoes
+        self.bntInformacoes.pack(side=LEFT)
+
         #Feedback
-        self.lblmsg = Label(self.container10, text="")
+        self.lblmsg = Label(self.container11, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
@@ -213,3 +230,11 @@ class Obtidos:
 
         self.txtdataa.delete(0, END)
         self.txtdataa.insert(INSERT,user.dataa)
+    
+    def gerarTabela(self):
+        engine = sqlalchemy.create_engine('bancoO.db')
+        df = pd.read_sql_table('livrosO', engine)
+        df.head()
+
+    def informacoes(self):
+        pass
