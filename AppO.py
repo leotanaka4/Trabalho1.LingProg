@@ -112,7 +112,7 @@ class Obtidos():
         font=self.fonte, width=10)
         self.lblstatus.pack(side=LEFT)
 
-        self.variable = StringVar()
+        self.variable = StringVar(self.container6)
         self.variable.set("Escolha")
         self.dropdown = OptionMenu(self.container6,self.variable,*self.status,command = self.display_selected())
         self.dropdown.pack()
