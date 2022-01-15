@@ -32,12 +32,12 @@ class Principal(Obtidos, Desejados):
         self.btnBuscar["command"] = self.iniciarDesejados
         self.btnBuscar.pack(side=LEFT)
 
-    def iniciarObtidos(self,):
+    def iniciarObtidos(self):
         root1 = Tk()
         Obtidos(root1)
         root1.mainloop()
         
-    def iniciarDesejados(self,):
+    def iniciarDesejados(self):
         root2 = Tk()
         Desejados(root2)
         root2.mainloop()
