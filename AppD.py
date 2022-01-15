@@ -144,7 +144,7 @@ class Desejados:
         
         #Comprado
 
-        self.bntComprar = Button(self.container9, text="Excluir",font=self.fonte, width=12)
+        self.bntComprar = Button(self.container9, text="Comprar",font=self.fonte, width=12)
         self.bntComprar["command"] = self.comprar
         self.bntComprar.pack(side=LEFT)
 
@@ -221,4 +221,5 @@ class Desejados:
 
         user = LivroD()
         user.idlivro = self.txtidlivro.get()
-        pass
+
+        self.lblmsg["Text"] = self.transferLivroD()

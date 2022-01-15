@@ -9,7 +9,7 @@ class Obtidos():
 
     def __init__(self, master=None):
 
-        self.fonte = ("Verdana", "8")
+        self.fonte = ("Verdana", "10")
         self.container1 = Frame(master)
         self.container1["pady"] = 10
         self.container1.pack()
@@ -55,7 +55,7 @@ class Obtidos():
 
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
-        self.titulo["font"] = ("Calibri", "9", "bold")
+        self.titulo["font"] = ("Calibri", "12", "bold")
         self.titulo.pack ()
 
         #ID Livro
