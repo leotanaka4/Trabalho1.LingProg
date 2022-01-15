@@ -5,7 +5,7 @@ from AppD import Desejados
 class Principal(Obtidos, Desejados):
     def __init__(self, master=None):
 
-        self.fonte = ("Verdana", "8")
+        self.fonte = ("Helvetica", "14")
         self.container1 = Frame(master)
         self.container1["pady"] = 10
         self.container1.pack()
@@ -19,7 +19,7 @@ class Principal(Obtidos, Desejados):
         self.container3.pack()
         
         self.titulo = Label(self.container1, text="Bookaholic")
-        self.titulo["font"] = ("Calibri", "9", "bold")
+        self.titulo["font"] = ("Times", "20", "bold")
         self.titulo.pack ()
 
         self.btnBuscar = Button(self.container2, text="Obtidos",
