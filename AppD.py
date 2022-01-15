@@ -7,7 +7,7 @@ class Desejados:
 
     def __init__(self, master=None):
 
-        self.fonte = ("Verdana", "8")
+        self.fonte = ("Verdana", "10")
         self.container1 = Frame(master)
         self.container1["pady"] = 10
         self.container1.pack()
@@ -48,7 +48,7 @@ class Desejados:
 
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros desejados:")
-        self.titulo["font"] = ("Calibri", "9", "bold")
+        self.titulo["font"] = ("Calibri", "12", "bold")
         self.titulo.pack ()
 
         #ID Livro
@@ -142,6 +142,12 @@ class Desejados:
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
         
+        #Comprado
+
+        self.bntComprar = Button(self.container9, text="Excluir",font=self.fonte, width=12)
+        self.bntComprar["command"] = self.comprar
+        self.bntComprar.pack(side=LEFT)
+
         #Feedback
         self.lblmsg = Label(self.container10, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
@@ -210,3 +216,9 @@ class Desejados:
 
         self.txtdataa.delete(0, END)
         self.txtdataa.insert(INSERT,user.dataa)
+    
+    def comprar(self):
+
+        user = LivroD()
+        user.idlivro = self.txtidlivro.get()
+        pass
