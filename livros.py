@@ -101,3 +101,24 @@ class LivroD:
         c.execute(comando)
         banco.conexao.commit()
         c.close()
+
+    def transferLivroD(self):
+        banco1 = BancoD()
+        banco2 = BancoO()
+        
+        c1 = banco1.conexao.cursor()
+        comando1 = "select * from livrosD where idlivro = " + str(id) + " "
+        c1.execute(comando1)
+        for elemento in c1:
+            nome = elemento[1]
+            autor = elemento[2]
+            genero = elemento[3]
+        c2 = banco2.conexao.cursor()
+        comando2 = "insert into livrosO(nome, autor, genero, status, opiniao, dataa) values('"+ nome +"', '"+ autor + "','"+ genero +"','" "','" "','" "')"
+        c2.execute(comando2)
+        comando3 = "delete from livrosD where idlivro = "+self.idlivro+ " "
+        c1.execute(comando3)
+        banco1.conexao.commit()
+        banco2.conexao.commit()
+        c1.close()
+        c2.close()
