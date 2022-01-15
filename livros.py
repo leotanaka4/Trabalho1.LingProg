@@ -2,7 +2,7 @@ from Banco import BancoO, BancoD
 
 class LivroO:
 
-    def __init__(self, idlivro=0, nome="", autor="", genero="", status="", opiniao="", dataa=""):
+    def __init__(self, idlivro=0, nome="", autor="", genero="", status="", opiniao="", dataa="", feedback="", informacoes=""):
         self.info = {}
         self.idlivro = idlivro
         self.nome = nome
@@ -11,6 +11,8 @@ class LivroO:
         self.status = status
         self.opiniao = opiniao
         self.dataa = dataa
+        self.feedback = feedback
+        self.informacoes = informacoes
     
     def insertLivroO(self):
         banco = BancoO()
