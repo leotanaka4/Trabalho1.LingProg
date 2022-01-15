@@ -235,4 +235,14 @@ class Obtidos():
         pass
 
     def informacoes(self):
-        pass
+        user = LivroO()
+        id = self.txtidlivro.get()
+
+        user.idlivro = self.txtidlivro.get()
+        user.nome = self.txtnome.get()
+        user.autor = self.txtautor.get()
+        user.genero = self.txtgenero.get()
+        user.status = self.txtstatus
+        user.opiniao = self.txtopiniao.get()
+        user.dataa = self.txtdataa.get()
+        user.feedback = self.txtfeedback.get()
