@@ -102,7 +102,7 @@ class LivroD:
         banco.conexao.commit()
         c.close()
 
-    def transferLivroD(self):
+    def transferLivroD(self, id):
         banco1 = BancoD()
         banco2 = BancoO()
         
@@ -116,7 +116,7 @@ class LivroD:
         c2 = banco2.conexao.cursor()
         comando2 = "insert into livrosO(nome, autor, genero, status, opiniao, dataa) values('"+ nome +"', '"+ autor + "','"+ genero +"','" "','" "','" "')"
         c2.execute(comando2)
-        comando3 = "delete from livrosD where idlivro = "+self.idlivro+ " "
+        comando3 = "delete from livrosD where idlivro = "+self.idlivro+" "
         c1.execute(comando3)
         banco1.conexao.commit()
         banco2.conexao.commit()
