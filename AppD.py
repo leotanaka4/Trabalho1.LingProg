@@ -66,7 +66,7 @@ class Desejados:
 
         #Buscar
         self.btnBuscar = Button(self.container2, text="Buscar",
-        font=self.fonte, width=10)
+        font=self.fonte, width=10, bg = '#7CB1F5', fg = 'white')
         self.btnBuscar["command"] = self.buscar
         self.btnBuscar.pack(side=RIGHT)
 
@@ -131,22 +131,22 @@ class Desejados:
         self.txtdataa.pack(side=LEFT)
 
         #Inserir
-        self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12)
+        self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
         self.bntInsert["command"] = self.inserir
         self.bntInsert.pack (side=LEFT)
 
         #Alterar
-        self.bntAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12)
+        self.bntAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
         self.bntAlterar["command"] = self.alterar
         self.bntAlterar.pack (side=LEFT)
 
         #Excluir
-        self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12)
+        self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
         
         #Comprado
-        self.bntComprar = Button(self.container10, text="Comprar",font=self.fonte, width=12)
+        self.bntComprar = Button(self.container10, text="Comprar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
         self.bntComprar["command"] = self.comprar
         self.bntComprar.pack(side=LEFT)
 
