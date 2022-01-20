@@ -20,7 +20,7 @@ class Principal(Obtidos, Desejados):
         
         self.titulo = Label(self.container1, text="Bookaholic")
         self.titulo["font"] = ("Times", "20", "bold")
-        self.titulo.pack ()
+        self.titulo.pack()
 
         self.btnBuscar = Button(self.container2, text="Obtidos",
         font=self.fonte, width=10)

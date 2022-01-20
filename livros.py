@@ -50,6 +50,22 @@ class LivroO:
         c.execute(comando)
         banco.conexao.commit()
         c.close()
+    
+    def countLivroO(self):
+        banco = BancoO()
+        lista = []
+        c = banco.conexao.cursor()
+        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Em espera" ""
+        c.execute(comando)
+        lista.append(c)
+        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Em curso" ""
+        c.execute(comando)
+        lista.append(c)
+        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Finalizado" ""
+        c.execute(comando)
+        lista.append(c)
+        c.close()
+        return lista
 
 class LivroD:
 

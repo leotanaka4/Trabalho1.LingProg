@@ -1,8 +1,5 @@
-from re import I
 from livros import LivroO
 from tkinter import *
-import sqlalchemy
-import pandas as pd
 #from <arquivo> import <classe ou método>
 
 class Obtidos():
@@ -52,6 +49,12 @@ class Obtidos():
         self.container11 = Frame(master)
         self.container11["padx"] = 20
         self.container11["pady"] = 10
+        self.container12 = Frame(master)
+        self.container12["padx"] = 20
+        self.container12["pady"] = 10
+        self.container13 = Frame(master)
+        self.container13["padx"] = 20
+        self.container13["pady"] = 10
 
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
@@ -105,7 +108,7 @@ class Obtidos():
         self.txtgenero.pack(side=LEFT)
 
         #Status
-        self.status = ["Em Espera","Em curso","Finalizado"]
+        self.status = ["Em espera","Em curso","Finalizado"]
         self.txtstatus = "Em espera"
 
         self.lblstatus= Label(self.container6, text="Status:",
@@ -114,7 +117,7 @@ class Obtidos():
 
         self.variable = StringVar(self.container6)
         self.variable.set("Escolha")
-        self.dropdown = OptionMenu(self.container6,self.variable,*self.status,command = self.display_selected())
+        self.dropdown = OptionMenu(self.container6,self.variable,*self.status)
         self.dropdown.pack()
 
         #Opinião
@@ -138,7 +141,7 @@ class Obtidos():
         self.txtdataa.pack(side=LEFT)
 
         #Inserir
-        self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12)
+        self.bntInsert = Button(self.container9, text="Inserir", font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserir
         self.bntInsert.pack (side=LEFT)
 
@@ -151,19 +154,17 @@ class Obtidos():
         self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12)
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
-        
-        #Tabela
-        self.bntTabela = Button(self.container10, text="Tabela", font=self.fonte, width=12)
-        self.bntTabela["command"] = self.gerarTabela
-        self.bntTabela.pack(side=LEFT)
 
         #Informações
-        self.bntInformacoes = Button(self.container10, text="Informações", font=self.fonte, width=12)
-        self.bntInformacoes["command"] = self.informacoes
-        self.bntInformacoes.pack(side=LEFT)
+        self.lblEmEspera = Label(self.container10, text="Livros em espera: "+str(self.informacoes(0)), width=12)
+        self.lblEmEspera.pack(side=LEFT)
+        self.lblEmCurso = Label(self.container11, text="Livros em curso: "+str(self.informacoes(1)), width=12)
+        self.lblEmCurso.pack(side=LEFT)
+        self.lblFinalizado = Label(self.container12, text="Livros finalizados: "+str(self.informacoes(2)), width=12)
+        self.lblFinalizado.pack(side=LEFT)
 
         #Feedback
-        self.lblmsg = Label(self.container11, text="")
+        self.lblmsg = Label(self.container13, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
@@ -173,6 +174,7 @@ class Obtidos():
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
+        self.display_selected()
         user.status = self.txtstatus
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
@@ -191,6 +193,7 @@ class Obtidos():
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
         user.genero = self.txtgenero.get()
+        self.display_selected()
         user.status = self.txtstatus
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
@@ -230,9 +233,10 @@ class Obtidos():
 
         self.txtdataa.delete(0, END)
         self.txtdataa.insert(INSERT,user.dataa)
-    
-    def gerarTabela(self):
-        pass
 
-    def informacoes(self):
+    def informacoes(self, status):
         pass
+        #user = LivroO()
+        #lista = user.countLivroO()
+        #Faz a contagem dos diferentes status
+        #return lista[status]
