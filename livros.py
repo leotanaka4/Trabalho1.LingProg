@@ -55,15 +55,18 @@ class LivroO:
         banco = BancoO()
         lista = []
         c = banco.conexao.cursor()
-        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Em espera" ""
+        comando = "SELECT COUNT(status) FROM livrosO WHERE status is 'Em espera'"
         c.execute(comando)
-        lista.append(c)
-        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Em curso" ""
+        for elemento in c:
+            lista.append(elemento[0])
+        comando = "SELECT COUNT(status) FROM livrosO WHERE status is 'Em curso'"
         c.execute(comando)
-        lista.append(c)
-        comando = "SELECT COUNT(status) FROM livroO WHERE status=" "Finalizado" ""
+        for elemento in c:
+            lista.append(elemento[0])
+        comando = "SELECT COUNT(status) FROM livrosO WHERE status is 'Finalizado'"
         c.execute(comando)
-        lista.append(c)
+        for elemento in c:
+            lista.append(elemento[0])
         c.close()
         return lista
 

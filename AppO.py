@@ -40,22 +40,15 @@ class Obtidos():
         self.container8.pack()
         self.container9 = Frame(master)
         self.container9["padx"] = 20
-        self.container9["pady"] = 10
+        self.container9["pady"] = 5
         self.container9.pack()
         self.container10 = Frame(master)
         self.container10["padx"] = 20
-        self.container10["pady"] = 10
+        self.container10["pady"] = 5
         self.container10.pack()
         self.container11 = Frame(master)
         self.container11["padx"] = 20
-        self.container11["pady"] = 10
-        self.container12 = Frame(master)
-        self.container12["padx"] = 20
-        self.container12["pady"] = 10
-        self.container13 = Frame(master)
-        self.container13["padx"] = 20
-        self.container13["pady"] = 10
-
+        self.container11["pady"] = 5
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
         self.titulo["font"] = ("Calibri", "12", "bold")
@@ -156,15 +149,13 @@ class Obtidos():
         self.bntExcluir.pack(side=LEFT)
 
         #Informações
-        self.lblEmEspera = Label(self.container10, text="Livros em espera: "+str(self.informacoes(0)), width=12)
+        self.lblEmEspera = Label(self.container10,
+        text="Livros em espera: "+str(self.informacoes(0))+". Livros em curso: "+str(self.informacoes(1))+". Livros finalizados: "+str(self.informacoes(2)),
+        width=50)
         self.lblEmEspera.pack(side=LEFT)
-        self.lblEmCurso = Label(self.container11, text="Livros em curso: "+str(self.informacoes(1)), width=12)
-        self.lblEmCurso.pack(side=LEFT)
-        self.lblFinalizado = Label(self.container12, text="Livros finalizados: "+str(self.informacoes(2)), width=12)
-        self.lblFinalizado.pack(side=LEFT)
 
         #Feedback
-        self.lblmsg = Label(self.container13, text="")
+        self.lblmsg = Label(self.container11, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
@@ -235,8 +226,7 @@ class Obtidos():
         self.txtdataa.insert(INSERT,user.dataa)
 
     def informacoes(self, status):
-        pass
-        #user = LivroO()
-        #lista = user.countLivroO()
+        user = LivroO()
+        lista = user.countLivroO()
         #Faz a contagem dos diferentes status
-        #return lista[status]
+        return lista[status]
