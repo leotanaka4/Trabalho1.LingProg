@@ -1,5 +1,6 @@
 from livros import LivroD
 from tkinter import *
+from tabela import TableD
 
 #from <arquivo> import <classe ou método>
 
@@ -150,6 +151,11 @@ class Desejados:
         self.bntComprar["command"] = self.comprar
         self.bntComprar.pack(side=LEFT)
 
+        #Tabela
+        self.bntTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.bntTabela["command"] = self.tabela
+        self.bntTabela.pack(side=LEFT)
+
         #Feedback
         self.lblmsg = Label(self.container11, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
@@ -224,3 +230,8 @@ class Desejados:
         id = self.txtidlivro.get()
 
         self.lblmsg["Text"] = user.transferLivroD(id)
+
+    def tabela(self):
+        rootT = Tk()
+        t = TableD(rootT)
+        rootT.mainloop()

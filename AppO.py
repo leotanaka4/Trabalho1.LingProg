@@ -1,5 +1,6 @@
 from livros import LivroO
 from tkinter import *
+from tabela import TableO
 #from <arquivo> import <classe ou método>
 
 class Obtidos():
@@ -49,6 +50,9 @@ class Obtidos():
         self.container11 = Frame(master)
         self.container11["padx"] = 20
         self.container11["pady"] = 5
+        self.container12 = Frame(master)
+        self.container12["padx"] = 20
+        self.container12["pady"] = 5
 
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
         self.titulo["font"] = ("Calibri", "12", "bold")
@@ -148,8 +152,13 @@ class Obtidos():
         self.bntExcluir["command"] = self.excluir
         self.bntExcluir.pack(side=LEFT)
 
+        #Tabela
+        self.bntTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.bntTabela["command"] = self.tabela
+        self.bntTabela.pack(side=LEFT)
+
         #Informações
-        self.lblEmEspera = Label(self.container10,
+        self.lblEmEspera = Label(self.container11,
         text="Livros em espera: "+str(self.informacoes(0))+". Livros em curso: "+str(self.informacoes(1))+". Livros finalizados: "+str(self.informacoes(2)),
         width=50)
         self.lblEmEspera.pack(side=LEFT)
@@ -230,3 +239,8 @@ class Obtidos():
         lista = user.countLivroO()
         #Faz a contagem dos diferentes status
         return lista[status]
+    
+    def tabela(self):
+        rootT = Tk()
+        t = TableO(rootT)
+        rootT.mainloop()
