@@ -54,6 +54,7 @@ class Obtidos():
         self.container12["padx"] = 20
         self.container12["pady"] = 5
 
+        #Titulo
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
         self.titulo["font"] = ("Calibri", "12", "bold")
         self.titulo.pack ()
@@ -138,24 +139,24 @@ class Obtidos():
         self.txtdataa.pack(side=LEFT)
 
         #Inserir
-        self.bntInsert = Button(self.container9, text="Inserir", font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntInsert["command"] = self.inserir
-        self.bntInsert.pack (side=LEFT)
+        self.btnInsert = Button(self.container9, text="Inserir", font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnInsert["command"] = self.inserir
+        self.btnInsert.pack (side=LEFT)
 
         #Alterar
-        self.bntAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntAlterar["command"] = self.alterar
-        self.bntAlterar.pack (side=LEFT)
+        self.btnAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnAlterar["command"] = self.alterar
+        self.btnAlterar.pack (side=LEFT)
 
         #Excluir
-        self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntExcluir["command"] = self.excluir
-        self.bntExcluir.pack(side=LEFT)
+        self.btnExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnExcluir["command"] = self.excluir
+        self.btnExcluir.pack(side=LEFT)
 
         #Tabela
-        self.bntTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntTabela["command"] = self.tabela
-        self.bntTabela.pack(side=LEFT)
+        self.btnTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnTabela["command"] = self.tabela
+        self.btnTabela.pack(side=LEFT)
 
         #Informações
         self.lblEmEspera = Label(self.container11,
@@ -179,7 +180,7 @@ class Obtidos():
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroO para poder adicionar no banco de dados
         self.lblmsg["text"] = user.insertLivroO()
         
     def display_selected(self):
@@ -188,7 +189,6 @@ class Obtidos():
     def alterar(self):
         
         user = LivroO()
-        #id está vazio
         user.idlivro = self.txtidlivro.get()
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
@@ -198,7 +198,7 @@ class Obtidos():
         user.opiniao = self.txtopiniao.get()
         user.dataa = self.txtdataa.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroO para poder alterar no banco de dados
         self.lblmsg["text"] = user.updateLivroO()
 
 
@@ -206,14 +206,14 @@ class Obtidos():
         user = LivroO()
         user.idlivro = self.txtidlivro.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a livro livroO para poder excluir no banco de dados
         self.lblmsg["Text"] = user.deleteLivroO()
 
     def buscar(self):
         user = LivroO()
         id = self.txtidlivro.get()
         
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroO para poder buscar no banco de dados
         self.lblmsg["text"] = user.selectLivroO(id)
 
         self.txtidlivro.delete(0, END)
@@ -241,6 +241,7 @@ class Obtidos():
         return lista[status]
     
     def tabela(self):
+        #Gera uma tabela do banco de dados dos livros obtidos
         rootT = Tk()
         t = TableO(rootT)
         rootT.mainloop()

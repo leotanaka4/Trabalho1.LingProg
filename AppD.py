@@ -132,29 +132,29 @@ class Desejados:
         self.txtdataa.pack(side=LEFT)
 
         #Inserir
-        self.bntInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntInsert["command"] = self.inserir
-        self.bntInsert.pack (side=LEFT)
+        self.btnInsert = Button(self.container9, text="Inserir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnInsert["command"] = self.inserir
+        self.btnInsert.pack (side=LEFT)
 
         #Alterar
-        self.bntAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntAlterar["command"] = self.alterar
-        self.bntAlterar.pack (side=LEFT)
+        self.btnAlterar = Button(self.container9, text="Alterar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnAlterar["command"] = self.alterar
+        self.btnAlterar.pack (side=LEFT)
 
         #Excluir
-        self.bntExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntExcluir["command"] = self.excluir
-        self.bntExcluir.pack(side=LEFT)
+        self.btnExcluir = Button(self.container9, text="Excluir",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnExcluir["command"] = self.excluir
+        self.btnExcluir.pack(side=LEFT)
         
         #Comprado
-        self.bntComprar = Button(self.container10, text="Comprar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntComprar["command"] = self.comprar
-        self.bntComprar.pack(side=LEFT)
+        self.btnComprar = Button(self.container10, text="Comprar",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnComprar["command"] = self.comprar
+        self.btnComprar.pack(side=LEFT)
 
         #Tabela
-        self.bntTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
-        self.bntTabela["command"] = self.tabela
-        self.bntTabela.pack(side=LEFT)
+        self.btnTabela = Button(self.container10, text="Tabela",font=self.fonte, width=12, bg = '#7CB1F5', fg = 'white')
+        self.btnTabela["command"] = self.tabela
+        self.btnTabela.pack(side=LEFT)
 
         #Feedback
         self.lblmsg = Label(self.container11, text="")
@@ -171,13 +171,12 @@ class Desejados:
         user.valor = self.txtvalor.get()
         user.dataa = self.txtdataa.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroD para poder inserir no banco de dados
         self.lblmsg["text"] = user.insertLivroD()
 
     def alterar(self):
         
         user = LivroD()
-        #id está vazio
         user.idlivro = self.txtidlivro.get()
         user.nome = self.txtnome.get()
         user.autor = self.txtautor.get()
@@ -186,7 +185,7 @@ class Desejados:
         user.valor = self.txtvalor.get()
         user.dataa = self.txtdataa.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroD para poder alterar no banco de dados
         self.lblmsg["text"] = user.updateLivroD()
 
 
@@ -194,14 +193,14 @@ class Desejados:
         user = LivroD()
         user.idlivro = self.txtidlivro.get()
 
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroD para poder excluir no banco de dados
         self.lblmsg["Text"] = user.deleteLivroD()
 
     def buscar(self):
         user = LivroD()
         id = self.txtidlivro.get()
         
-        # aqui eu chamo a classe usuario para poder modificar coisas no banco de dados
+        # aqui eu chamo a classe livroD para poder buscar no banco de dados
         self.lblmsg["text"] = user.selectLivroD(id)
 
         self.txtidlivro.delete(0, END)
@@ -228,10 +227,11 @@ class Desejados:
     def comprar(self):
         user = LivroD()
         id = self.txtidlivro.get()
-
+        #Move um livro de livros desejados para livros obtidos sem status, sem opiniao e sem data
         self.lblmsg["Text"] = user.transferLivroD(id)
 
     def tabela(self):
+        #Gera uma tabela do banco de dados dos livros desejados
         rootT = Tk()
         t = TableD(rootT)
         rootT.mainloop()

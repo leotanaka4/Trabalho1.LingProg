@@ -22,15 +22,15 @@ class Principal(Obtidos, Desejados):
         self.titulo["font"] = ("Times", "20", "bold")
         self.titulo.pack()
 
-        self.btnBuscar = Button(self.container2, text="Obtidos",
+        self.btnObtidos = Button(self.container2, text="Obtidos",
         font=self.fonte, width=10, bg = '#7CB1F5', fg = 'white')
-        self.btnBuscar["command"] = self.iniciarObtidos
-        self.btnBuscar.pack(side=LEFT)
+        self.btnObtidos["command"] = self.iniciarObtidos
+        self.btnObtidos.pack(side=LEFT)
 
-        self.btnBuscar = Button(self.container3, text="Desejados",
+        self.btnDesejados = Button(self.container3, text="Desejados",
         font=self.fonte, width=10, bg = '#7CB1F5', fg = 'white')
-        self.btnBuscar["command"] = self.iniciarDesejados
-        self.btnBuscar.pack(side=LEFT)
+        self.btnDesejados["command"] = self.iniciarDesejados
+        self.btnDesejados.pack(side=LEFT)
 
     def iniciarObtidos(self):
         root1 = Tk()
