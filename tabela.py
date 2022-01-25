@@ -17,7 +17,7 @@ class TableO:
 
         for i in range(self.total_rows):
             for j in range(self.total_columns):
-                        self.e = Entry(root, width=12, bg = '#7CB1F5', fg = 'white', font=('Arial',16,'bold')) 
+                        self.e = Entry(root, width=16, bg = '#7CB1F5', fg = 'white', font=('Arial',12,'bold')) 
                         self.e.grid(row=i, column=j) 
                         self.e.insert(END, self.lista[i][j])
 
@@ -37,6 +37,6 @@ class TableD:
 
         for i in range(self.total_rows):
             for j in range(self.total_columns):
-                        self.e = Entry(root, width=12, bg = '#7CB1F5', fg = 'white', font=('Arial',16,'bold')) 
+                        self.e = Entry(root, width=16, bg = '#7CB1F5', fg = 'white', font=('Arial',12,'bold')) 
                         self.e.grid(row=i, column=j) 
                         self.e.insert(END, self.lista[i][j])
