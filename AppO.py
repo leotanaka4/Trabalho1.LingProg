@@ -50,9 +50,11 @@ class Obtidos():
         self.container11 = Frame(master)
         self.container11["padx"] = 20
         self.container11["pady"] = 5
+        self.container11.pack()
         self.container12 = Frame(master)
         self.container12["padx"] = 20
         self.container12["pady"] = 5
+        self.container12.pack()
 
         #Titulo
         self.titulo = Label(self.container1, text="Informe os dados dos livros obtidos:")
